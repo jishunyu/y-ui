@@ -1,12 +1,12 @@
 <template>
     <button :class="[`Y-btn Y-btn-${type}`]">
       <div class="click-loader" v-show="loading"></div>
-      <span>{{text}}</span>
+      <span><slot></slot></span>
     </button>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent,PropType } from 'vue';
 interface Data {
     [key: string]: unknown;
 }
@@ -19,13 +19,21 @@ interface SetupContext {
     emit: (event: string, ...args: unknown[]) => void;
 }
 export default defineComponent({
-  name: 'Y-Button',
+  name: 'y-button',
   props: {
-    text: String,
-    type: String,
-    loading: Boolean
+    type: {
+      type:String as PropType<string>,
+      default:'default'
+    },
+    loading: {
+      type:Boolean as PropType<boolean>,
+      default:false
+    }
   },
   setup(props, ctx:SetupContext){
+    // console.log(props);
+
+    
     return {
     }
   }
@@ -41,7 +49,7 @@ $btn-class-prefix: "btn";
     font-size: 14px;
     line-height: 1;
     position: relative;
-    display: flex;
+    display: inline-block;
     align-items: center;
   }
   &-primary {

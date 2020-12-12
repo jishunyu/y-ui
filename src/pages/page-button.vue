@@ -1,20 +1,20 @@
 <template>
-    <div class="flex">
-      <Y-button text="默认按钮"></Y-button>
-      <Y-button type="primary" text="蓝色按钮"></Y-button>
-      <Y-button type="success" text="绿色按钮"></Y-button>
-      <Y-button type="info" text="灰色按钮"></Y-button>
-      <Y-button text="默认按钮" @click="btnClick" :loading="loading.loading"></Y-button>
+    <div>
+      <y-button>默认按钮</y-button>
+      <y-button type="primary">蓝色按钮</y-button>
+      <y-button type="success">绿色按钮</y-button>
+      <y-button type="info">灰色按钮</y-button>
+      <y-button @click="btnClick" :loading="loading.loading">loading按钮</y-button>
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent,reactive } from 'vue';
-import YButton from '@/components/button/button.vue'
+import yButton from '@/components/button/button.vue'
 export default defineComponent({
-  name: 'Home',
+  name: 'button',
   components: {
-    YButton
+    yButton
   },
   setup(){
     const loading = reactive({
