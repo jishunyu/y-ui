@@ -10,7 +10,7 @@
   import { defineComponent } from 'vue'
   import yInput from '@/components/input/input.vue'
   export default defineComponent({
-    name: 'input',
+    name: 'page-input',
     components:{
       yInput
     }

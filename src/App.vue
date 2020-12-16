@@ -1,17 +1,21 @@
 <template>
   <div class="flex" style="height:100%;">
     <nav-bar></nav-bar>
-    <div style="padding:20px;"><router-view/></div>
+    <section class="section">
+      <router-view/>
+    </section>
   </div>
 </template>
 <script>
 import navBar from '@/components/nav-bar/nav-bar.vue'
+import { defineComponent } from 'vue';
+
 export default {
   components:{
-    navBar
+    navBar,
   }
 }
-</script>t>
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -20,6 +24,13 @@ export default {
   color: #2c3e50;
   height: 100%;
 }
-
-
+.section{
+  padding:30px;
+  overflow: hidden;
+  overflow-y: scroll;
+  width:100%;
+}
+body{
+  --color:#FF9500
+}
 </style>

@@ -12,7 +12,7 @@
 import { defineComponent,reactive } from 'vue';
 import yButton from '@/components/button/button.vue'
 export default defineComponent({
-  name: 'button',
+  name: 'page-button',
   components: {
     yButton
   },

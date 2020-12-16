@@ -1,50 +1,48 @@
 <template>
-    <button :class="[`Y-btn Y-btn-${type}`]">
-      <div class="click-loader" v-show="loading"></div>
-      <span><slot></slot></span>
-    </button>
+  <button :class="[`Y-btn Y-btn-${type}`]">
+    <div class="click-loader" v-show="loading"></div>
+    <span><slot></slot></span>
+  </button>
 </template>
 
 <script lang="ts">
-import { defineComponent,PropType } from 'vue';
+import { defineComponent, PropType } from "vue";
 interface Data {
-    [key: string]: unknown;
+  [key: string]: unknown;
 }
 interface Slots {
-    [key: string]: unknown;
+  [key: string]: unknown;
 }
 interface SetupContext {
-    attrs: Data;
-    slots: Slots;
-    emit: (event: string, ...args: unknown[]) => void;
+  attrs: Data;
+  slots: Slots;
+  emit: (event: string, ...args: unknown[]) => void;
 }
 export default defineComponent({
-  name: 'y-button',
+  name: "y-button",
   props: {
     type: {
-      type:String as PropType<string>,
-      default:'default'
+      type: String as PropType<string>,
+      default: "default",
     },
     loading: {
-      type:Boolean as PropType<boolean>,
-      default:false
-    }
+      type: Boolean as PropType<boolean>,
+      default: false,
+    },
   },
-  setup(props, ctx:SetupContext){
+  setup(props, ctx: SetupContext) {
     // console.log(props);
 
-    
-    return {
-    }
-  }
+    return {};
+  },
 });
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-$btn-class-prefix: "btn"; 
-.#{$class-prefix}#{$btn-class-prefix} { 
-  &{
+$btn-class-prefix: "btn";
+.#{$class-prefix}#{$btn-class-prefix} {
+  & {
     padding: 12px 20px;
     font-size: 14px;
     line-height: 1;
@@ -58,29 +56,29 @@ $btn-class-prefix: "btn";
   &-success {
     background: #67c23a;
   }
-  &-info{
+  &-info {
     background: #909399;
   }
 }
-.click-loader{
-		display: inline-flex;
-    margin-right: 5px;
-		vertical-align: middle;
-		width: 8px;
-		height: 8px;
-		background: 0 0;
-		border-radius: 50%;
-		border: 2px solid;
-		border-color: #e5e5e5 #e5e5e5 #e5e5e5 #8f8d8e;
-		animation: u-circle 1s linear infinite;
+.click-loader {
+  display: inline-flex;
+  margin-right: 5px;
+  vertical-align: middle;
+  width: 8px;
+  height: 8px;
+  background: 0 0;
+  border-radius: 50%;
+  border: 2px solid;
+  border-color: #e5e5e5 #e5e5e5 #e5e5e5 #8f8d8e;
+  animation: u-circle 1s linear infinite;
 }
 @keyframes u-circle {
-		0% {
-			transform: rotate(0);
-		}
+  0% {
+    transform: rotate(0);
+  }
 
-		100% {
-			transform: rotate(360deg);
-		}
-	}
+  100% {
+    transform: rotate(360deg);
+  }
+}
 </style>

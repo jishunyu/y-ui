@@ -23,106 +23,14 @@
 
 <script>
 import { defineComponent,getCurrentInstance, reactive, watch, watchEffect } from 'vue';
+import tablist from './config'
 export default defineComponent({
     name:'navbar',
     setup(props,{}){
         const { ctx } = getCurrentInstance();
         let state = reactive({
           curPath:'/',
-          tablist : [
-            {
-              title:'引导',
-              children:[
-                {
-                  children:[
-                    {
-                      path : '/',
-                      text:'安装'
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              title:'组件',
-              children:[
-                {
-                  lable:'基础组件',
-                  children:[
-                    {
-                      path : '/case/button',
-                      text:'Button 按钮'
-                    }
-                  ],
-                },
-                {
-                  lable:'表单组件',
-                  children:[
-                    {
-                      path : '/case/input',
-                      text:'Input 输入框'
-                    },
-                    {
-                      path : '/case/calendar',
-                      text:'Calendar 日历'
-                    },
-                    {
-                      path : '/case/numberBox',
-                      text:'NumberBox 步进器'
-                    }
-                  ],
-                },
-                {
-                  lable:'数据组件',
-                  children:[
-                    {
-                      path : '/case/line-progress',
-                      text:'LineProgress 线形进度条'
-                    }
-                  ],
-                },
-                {
-                  lable:'反馈组件',
-                  children:[
-                    {
-                      path : '/case/toast',
-                      text:'Toast 消息提示'
-                    },
-                    {
-                      path : '/case/noticeBar',
-                      text:'NoticeBar 滚动通知 '
-                    }
-                  ],
-                },
-                {
-                  lable:'导航组件',
-                  children:[
-                    {
-                      path : '/case/tabs',
-                      text:'Tabs 标签页 '
-                    },
-                    {
-                      path : '/case/steps',
-                      text:'Steps 步骤条 '
-                    },
-                    {
-                      path : '/case/dropdown',
-                      text:'Dropdown 下拉菜单'
-                    },
-                  ],
-                },
-                {
-                  lable:'其他组件',
-                  children:[
-                    {
-                      path : '/case/loading',
-                      text:'Loading 数据加载'
-                    }
-                  ],
-                }
-              ]
-            },
-          ]
+          tablist
         })
         watchEffect(() => {
           const path = ctx.$router.currentRoute.value.path
@@ -137,7 +45,7 @@ export default defineComponent({
 <style lang="scss" scoped>
     #nav {
         padding: 30px;
-        width: 280px;
+        min-width: 280px;
         box-sizing: border-box;
         background: #f7f7f7;
         height: 100%;
